@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 ## Load trained model
-model = joblib.load("ifood_df_gbt_model.joblib")
+model = joblib.load("ifood_df_rf_adjusted_threshold_model.joblib")
 
 ## Streamlit app
 st.title("Marketing Prediction")
