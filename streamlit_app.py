@@ -3,6 +3,13 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
+import base64
+
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+bg = get_base64_of_bin_file("marketing_background.png")
 ## Load trained model
 model = joblib.load("ifood_df_rf_adjusted_threshold_model.joblib")['model']
 
@@ -188,8 +195,9 @@ st.markdown(
     f"""
     <style>
     .stApp {{
-        background: url("https://www.shutterstock.com/shutterstock/videos/1025418011/thumb/1.jpg");
+        background: url("data:image/png;base64,{bg}");
         background-size: cover
+        background-repeat: no-repeat;
     }}
     </style>
     """,
