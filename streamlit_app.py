@@ -17,8 +17,8 @@ model = joblib.load("ifood_df_rf_adjusted_threshold_model.joblib")['model']
 st.title("Marketing Prediction")
 
 ## Define the input options
-Kidhome = [2, 1, 0]
-Teenhome = [2, 1, 0]
+Kidhome =  0
+Teenhome = 0
 MntWines = 0 
 Recency = 0
 MntFruits=  0
@@ -50,8 +50,8 @@ MntTotal = 0
 MntRegularProds = 0
 education_2n_Cycle = [0,1]
 ## User inputs
-Kidhome_selected = st.selectbox("Select Kidhome", Kidhome)
-Teenhome_selected = st.selectbox("Select Teenhome", Teenhome)
+Kidhome_selected = st.text_input("Select Kidhome", Kidhome)
+Teenhome_selected = st.text_input("Select Teenhome", Teenhome)
 MntWines_selected = st.text_input("Enter MntWines", MntWines)
 Recency_selected = st.text_input("Enter Recency", Recency)
 MntFruits_selected= st.text_input("Enter MntFruits", MntFruits)
