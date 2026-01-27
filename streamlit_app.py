@@ -89,7 +89,7 @@ education_2n_Cycle_selected = st.selectbox("Select education_2n_Cycle", educatio
 marital_Divorced_selected = st.selectbox("Select marital_Divorced", marital_Divorced)
 
 ## Predict button
-if st.button("Predict marketing data"):
+if st.button("Predict marketing Response"):
 
     ## Create dict for input features
     input_data = {
@@ -188,7 +188,7 @@ if st.button("Predict marketing data"):
 
     ## Predict
     y_unseen_pred = model.predict(df_input)[0]
-    st.success(f"Predicted Marketing campaign: {y_unseen_pred:,.3f}")
+    st.success(f"Predicted Marketing campaign Response: {y_unseen_pred:,.3f}")
 
 ## Page design
 st.markdown(
