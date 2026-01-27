@@ -35,7 +35,6 @@ Complain = [0,1]
 Income = 0
 Z_CostContact = 0
 Z_Revenue = 0 
-Response = [0,1]
 Age = 0
 Customer_Days = 0 
 marital_Divorced = [0,1]
@@ -70,7 +69,6 @@ Complain_selected = st.selectbox("Select Complain", Complain)
 Income_selected = st.text_input("Enter Income", Income)
 Z_CostContact_selected = st.text_input("Enter Z_CostContact", Z_CostContact)
 Z_Revenue_selected = st.text_input("Enter Z_Revenue", Z_Revenue)
-Response_selected = st.selectbox("Select Response", Response)
 Age_selected = st.text_input("Enter Age", Age)
 Customer_Days_selected = st.text_input("Enter Customer_Days", Customer_Days)
 
@@ -112,7 +110,6 @@ if st.button("Predict marketing Response"):
         "Income": Income_selected,
         "Z_CostContact": Z_CostContact_selected,
         "Z_Revenue": Z_Revenue_selected,
-        "Response": Response_selected,
         "Age": Age_selected,
         "Customer_Days": Customer_Days_selected,
 
@@ -152,7 +149,6 @@ if st.button("Predict marketing Response"):
         "Complain": [Complain_selected],
         "Z_CostContact": [Z_CostContact_selected],
         "Z_Revenue": [Z_Revenue_selected],
-        "Response": [Response_selected],
         "Age": [Age_selected],
         "Customer_Days": [Customer_Days_selected],
 
@@ -174,7 +170,7 @@ if st.button("Predict marketing Response"):
 
     ## One-hot encoding
     df_input = pd.get_dummies(df_input, 
-                              columns = ['Kidhome', 'Teenhome', 'Complain','Z_CostContact','Z_Revenue','Response','marital_Married','marital_Single',
+                              columns = ['Kidhome', 'Teenhome', 'Complain','Z_CostContact','Z_Revenue','marital_Married','marital_Single',
                                          'marital_Together','marital_Widow','education_Basic','education_Graduation','education_Master','education_PhD','education_2n_Cycle','marital_Divorced']
                              )
 
