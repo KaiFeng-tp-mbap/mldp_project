@@ -50,8 +50,8 @@ MntTotal = 0
 MntRegularProds = 0
 education_2n_Cycle = [0,1]
 ## User inputs
-Kidhome_selected = st.text_input("Select Kidhome", Kidhome)
-Teenhome_selected = st.text_input("Select Teenhome", Teenhome)
+Kidhome_selected = st.text_input("Enter Kidhome", Kidhome)
+Teenhome_selected = st.text_input("Enter Teenhome", Teenhome)
 MntWines_selected = st.text_input("Enter MntWines", MntWines)
 Recency_selected = st.text_input("Enter Recency", Recency)
 MntFruits_selected= st.text_input("Enter MntFruits", MntFruits)
