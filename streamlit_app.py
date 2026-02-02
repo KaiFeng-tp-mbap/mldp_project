@@ -11,7 +11,7 @@ def get_base64_of_bin_file(bin_file):
     return base64.b64encode(data).decode()
 bg = get_base64_of_bin_file("marketing_background.png")
 ## Load trained model
-model = joblib.load("ifood_df_rf_adjusted_threshold_model.joblib")['model']
+model = joblib.load("ifood_df_logr_adjusted_threshold_model.joblib")['model']
 
 ## Streamlit app
 st.title("Marketing Prediction")
