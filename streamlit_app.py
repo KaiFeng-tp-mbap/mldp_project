@@ -50,41 +50,41 @@ MntTotal = 0
 MntRegularProds = 0
 education_2n_Cycle = [0,1]
 ## User inputs
-Kidhome_selected = st.text_input("Enter Kidhome", Kidhome)
-Teenhome_selected = st.text_input("Enter Teenhome", Teenhome)
-MntWines_selected = st.text_input("Enter MntWines", MntWines)
-Recency_selected = st.text_input("Enter Recency", Recency)
-MntFruits_selected= st.text_input("Enter MntFruits", MntFruits)
-MntMeatProducts_selected = st.text_input("Enter MntMeatProducts", MntMeatProducts)
+Kidhome_selected = st.text_input("Enter Number of small children in household (Kidhome)", Kidhome)
+Teenhome_selected = st.text_input("Enter Number of of teenagers in household (Teenhome)", Teenhome)
+MntWines_selected = st.text_input("Enter Amount spent on wine in the last 2 years (MntWines)", MntWines)
+Recency_selected = st.text_input("Enter number of days since last purchase (Recency) ", Recency)
+MntFruits_selected= st.text_input("Enter Amount spent on Fruits in the last 2 years (MntFruits)", MntFruits)
+MntMeatProducts_selected = st.text_input("Enter Amount spent on Meat in the last 2 years (MntMeatProducts)", MntMeatProducts)
 
-MntFishProducts_selected = st.text_input("Enter MntFishProducts", MntFishProducts)
-MntSweetProducts_selected = st.text_input("Enter MntSweetProducts", MntSweetProducts)
-MntGoldProds_selected = st.text_input("Enter MntGoldProds", MntGoldProds)
-NumDealsPurchases_selected= st.text_input("Enter NumDealsPurchases", NumDealsPurchases)
-NumWebPurchases_selected = st.text_input("Enter NumWebPurchases", NumWebPurchases)
-NumCatalogPurchases_selected = st.text_input("Enter NumCatalogPurchases", NumCatalogPurchases)
-NumStorePurchases_selected = st.text_input("Enter NumStorePurchases", NumStorePurchases)
-NumWebVisitsMonth_selected = st.text_input("Enter NumWebVisitsMonth", NumWebVisitsMonth)
-Complain_selected = st.selectbox("Select Complain", Complain)
-Income_selected = st.text_input("Enter Income", Income)
+MntFishProducts_selected = st.text_input("Enter Amount spent on Fish in the last 2 years (MntFishProducts)", MntFishProducts)
+MntSweetProducts_selected = st.text_input("Enter Amount spent on sweets in the last 2 years (MntSweetProducts)", MntSweetProducts)
+MntGoldProds_selected = st.text_input("Enter Amount spent on Gold in the last 2 years (MntGoldProds)", MntGoldProds)
+NumDealsPurchases_selected= st.text_input("Enter Number of purchases made with discount (NumDealsPurchases)", NumDealsPurchases)
+NumWebPurchases_selected = st.text_input("Enter Number of purchases made through company's website (NumWebPurchases)", NumWebPurchases)
+NumCatalogPurchases_selected = st.text_input("Enter Number of purchases using catalog (NumCatalogPurchases)", NumCatalogPurchases)
+NumStorePurchases_selected = st.text_input("Enter Number of purchases directly in store (NumStorePurchases)", NumStorePurchases)
+NumWebVisitsMonth_selected = st.text_input("Enter Number of visits to the company's website in the last month NumWebVisitsMonth", NumWebVisitsMonth)
+Complain_selected = st.selectbox("Select Complain if 1 customer Complained in the last 2 years", Complain)
+Income_selected = st.text_input("Enter yealy household Income", Income)
 Z_CostContact_selected = st.text_input("Enter Z_CostContact", Z_CostContact)
 Z_Revenue_selected = st.text_input("Enter Z_Revenue", Z_Revenue)
 Age_selected = st.text_input("Enter Age", Age)
-Customer_Days_selected = st.text_input("Enter Customer_Days", Customer_Days)
+Customer_Days_selected = st.text_input("Enter date of customor's enrollment with the comapny (Customer_Days)", Customer_Days)
 
-marital_Married_selected = st.selectbox("Select marital_Married", marital_Married)
-marital_Single_selected = st.selectbox("Select marital_Single", marital_Single)
-marital_Together_selected =  st.selectbox("Select marital_Together", marital_Together)
-marital_Widow_selected =  st.selectbox("Select marital_Widow", marital_Widow)
-education_Basic_selected =  st.selectbox("Select education_Basic", education_Basic)
-education_Graduation_selected =  st.selectbox("Select education_Graduation", education_Graduation)
-education_Master_selected =  st.selectbox("Select education_Master", education_Master)
-education_PhD_selected = st.selectbox("Select education_PhD", education_PhD)
-MntTotal_selected = st.text_input("Enter MntTotal", MntTotal)
-MntRegularProds_selected =  st.text_input("Enter MntRegularProds", MntRegularProds)
+marital_Married_selected = st.selectbox("Select marital status (marital_Married)", marital_Married)
+marital_Single_selected = st.selectbox("Select marital status (marital_Single)", marital_Single)
+marital_Together_selected =  st.selectbox("Select marital status (marital_Together)", marital_Together)
+marital_Widow_selected =  st.selectbox("Select marital status (marital_Widow)", marital_Widow)
+education_Basic_selected =  st.selectbox("Select education level (education_Basic)", education_Basic)
+education_Graduation_selected =  st.selectbox("Select education level (education_Graduation)", education_Graduation)
+education_Master_selected =  st.selectbox("Select education level (education_Master)", education_Master)
+education_PhD_selected = st.selectbox("Select education level (education_PhD)", education_PhD)
+MntTotal_selected = st.text_input("Enter Amount spent on Total products in the last 2 years (MntTotal)", MntTotal)
+MntRegularProds_selected =  st.text_input("Enter Amount spent on Regular Productss in the last 2 years (MntRegularProds)", MntRegularProds)
 
-education_2n_Cycle_selected = st.selectbox("Select education_2n_Cycle", education_2n_Cycle)
-marital_Divorced_selected = st.selectbox("Select marital_Divorced", marital_Divorced)
+education_2n_Cycle_selected = st.selectbox("Select education level (education_2n_Cycle)", education_2n_Cycle)
+marital_Divorced_selected = st.selectbox("Select marital status (marital_Divorced)", marital_Divorced)
 
 ## Predict button
 if st.button("Predict marketing Response"):
@@ -184,7 +184,7 @@ if st.button("Predict marketing Response"):
 
     ## Predict
     y_unseen_pred = model.predict(df_input)[0]
-    st.success(f"Predicted Marketing campaign Response: {y_unseen_pred:,.3f}")
+    st.success(f"Predicted Marketing campaign Response: {y_unseen_pred}")
 
 ## Page design
 st.markdown(
