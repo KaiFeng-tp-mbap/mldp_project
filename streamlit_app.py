@@ -195,6 +195,12 @@ st.markdown(
         background-size: cover
         background-repeat: no-repeat;
     }}
+    .text_input {{
+        color:yellow;
+    }}
+    .selectbox {{
+        color:yellow;
+    }}
     </style>
     """,
     unsafe_allow_html=True
