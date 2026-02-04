@@ -185,7 +185,7 @@ if st.button("Predict marketing Response"):
     ## Predict
     y_unseen_pred = model.predict(df_input)[0]
     st.success(f"Predicted Marketing campaign Response: {y_unseen_pred}")
-
+    st.title("1 if the customer accepted the offer in the last campaign \n 0 if the customer never accepted the offer in the last campaign.")
 ## Page design
 st.markdown(
     f"""
@@ -195,12 +195,7 @@ st.markdown(
         background-size: cover
         background-repeat: no-repeat;
     }}
-    .text_input {{
-        color:yellow;
-    }}
-    .selectbox {{
-        color:yellow;
-    }}
+
     </style>
     """,
     unsafe_allow_html=True
