@@ -15,7 +15,7 @@ model = joblib.load("ifood_df_logr_adjusted_threshold_model.joblib")['model']
 
 ## Streamlit app
 st.title("Marketing Prediction")
-st.title("1 if the customer accepted the offer in the last campaign \n 0 if the customer never accepted the offer in the last campaign.")
+st.text("1 if the customer accepted the offer in the last campaign \n 0 if the customer never accepted the offer in the last campaign.")
 ## Define the input options
 Kidhome =  0
 Teenhome = 0
