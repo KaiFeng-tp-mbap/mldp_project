@@ -72,19 +72,23 @@ Z_Revenue_selected = st.text_input("Enter Z_Revenue", Z_Revenue)
 Age_selected = st.text_input("Enter Age", Age)
 Customer_Days_selected = st.text_input("Enter date of customor's enrollment with the comapny (Customer_Days)", Customer_Days)
 
-marital_Married_selected = st.selectbox("Select marital status (marital_Married)", marital_Married)
-marital_Single_selected = st.selectbox("Select marital status (marital_Single)", marital_Single)
-marital_Together_selected =  st.selectbox("Select marital status (marital_Together)", marital_Together)
-marital_Widow_selected =  st.selectbox("Select marital status (marital_Widow)", marital_Widow)
-education_Basic_selected =  st.selectbox("Select education level (education_Basic)", education_Basic)
-education_Graduation_selected =  st.selectbox("Select education level (education_Graduation)", education_Graduation)
-education_Master_selected =  st.selectbox("Select education level (education_Master)", education_Master)
-education_PhD_selected = st.selectbox("Select education level (education_PhD)", education_PhD)
+marital_Married_selected = st.selectbox("Select marital status (marital_Married): 1 if you are Married, 0 otherwise", marital_Married)
+marital_Single_selected = st.selectbox("Select marital status (marital_Single): 1 if you are Single, 0 otherwise", marital_Single)
+marital_Together_selected =  st.selectbox("Select marital status (marital_Together): 1 if you are in a relationship, 0 otherwise", marital_Together)
+marital_Widow_selected =  st.selectbox("Select marital status (marital_Widow): 1 if you are Divorced, 0 otherwise", marital_Widow)
+marital_Divorced_selected = st.selectbox("Select marital status (marital_Divorced): 1 if you are a widow/widower, 0 otherwise", marital_Divorced)
+
+education_Basic_selected =  st.selectbox("Select education level (education_Basic): 1 if you have a Basic education, 0 otherwise", education_Basic)
+education_Graduation_selected =  st.selectbox("Select education level (education_Graduation): 1 if you have a bachelor degree, 0 otherwise", education_Graduation)
+education_Master_selected =  st.selectbox("Select education level (education_Master): 1 if you have a masters degree, 0 otherwise", education_Master)
+education_PhD_selected = st.selectbox("Select education level (education_PhD): 1 if you have a PhD, 0 otherwise", education_PhD)
+education_2n_Cycle_selected = st.selectbox("Select education level (education_2n_Cycle): 1 if you have a a secondary education, 0 otherwise", education_2n_Cycle)
+
+
 MntTotal_selected = st.text_input("Enter Amount spent on Total products in the last 2 years (MntTotal)", MntTotal)
 MntRegularProds_selected =  st.text_input("Enter Amount spent on Regular Productss in the last 2 years (MntRegularProds)", MntRegularProds)
 
-education_2n_Cycle_selected = st.selectbox("Select education level (education_2n_Cycle)", education_2n_Cycle)
-marital_Divorced_selected = st.selectbox("Select marital status (marital_Divorced)", marital_Divorced)
+
 
 ## Predict button
 if st.button("Predict marketing Response"):
