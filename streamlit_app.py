@@ -5,6 +5,17 @@ import pandas as pd
 
 import base64
 
+def get_number(value, field_name, cast_type=float,min_value = None):
+    try: 
+        num = cast_type(value)
+        if min_value is not None and num < min_value:
+            st.error(f"{field_name} must be >={min_value}")
+            return None
+        return num
+    except ValueError:
+        st.error(f"{field_name} must be a valid number")
+        return None
+    
 def get_base64_of_bin_file(bin_file):
     with open(bin_file, "rb") as f:
         data = f.read()
@@ -93,30 +104,59 @@ MntRegularProds_selected =  st.text_input("Enter Amount spent on Regular Product
 
 ## Predict button
 if st.button("Predict marketing Response"):
+    Kidhome= get_number(Kidhome_selected,"Kidhome",int,0)
+    Teenhome= get_number(Teenhome_selected,"Teenhome",int,0)
+    MntFruits= get_number(MntFruits_selected,"MntFruits",int,0)
+    MntWines= get_number(MntWines_selected,"MntWines",int,0)
+    Recency= get_number(Recency_selected,"Recency",int,0)
+    MntMeatProducts= get_number(MntMeatProducts_selected,"MntMeatProducts",int,0)
 
+    MntFishProducts= get_number(MntFishProducts_selected,"MntFishProducts",int,0)
+    MntSweetProducts= get_number(MntSweetProducts_selected,"MntSweetProducts",int,0)
+    MntGoldProds= get_number(MntGoldProds_selected,"MntGoldProds",int,0)
+    NumDealsPurchases= get_number(NumDealsPurchases_selected,"NumDealsPurchases",int,0)
+    NumWebPurchases= get_number(NumWebPurchases_selected,"NumWebPurchases",int,0)
+    NumCatalogPurchases= get_number(NumCatalogPurchases_selected,"NumCatalogPurchases",int,0)
+    NumStorePurchases= get_number(NumStorePurchases_selected,"NumStorePurchases",int,0)
+    NumWebVisitsMonth= get_number(NumWebVisitsMonth_selected,"NumWebVisitsMonth",int,0)
+    Income= get_number(Income_selected,"Income",int,0)
+    Z_CostContact= get_number(Z_CostContact_selected,"Z_CostContact",int)
+    Z_Revenue= get_number(Z_Revenue_selected,"Z_Revenue",int)
+    Age= get_number(Age_selected,"Age",int,0)
+    Customer_Days= get_number(Customer_Days_selected,"Customer_Days",int,0)
+
+    MntTotal= get_number(MntTotal_selected,"MntTotal",int,0)
+    MntRegularProds= get_number(MntRegularProds_selected,"MntRegularProds",int,0)
+
+    if None in [
+        Kidhome,Teenhome,MntFruits,MntWines,Recency,MntMeatProducts,MntFishProducts,MntSweetProducts,
+        MntGoldProds,NumDealsPurchases,NumWebPurchases,NumCatalogPurchases,NumStorePurchases,NumWebVisitsMonth,
+        Income,Z_CostContact,Z_Revenue,Age,Customer_Days,MntTotal,MntRegularProds
+    ]:
+        st.stop()
     ## Create dict for input features
     input_data = {
-        'Kidhome': Kidhome_selected,
-        'Teenhome': Teenhome_selected,
-        'MntFruits': MntFruits_selected,
-        "MntWines": MntWines_selected,
-        "Recency":Recency_selected,
-        "MntMeatProducts": MntMeatProducts_selected,
+        'Kidhome': Kidhome,
+        'Teenhome': Teenhome,
+        'MntFruits': MntFruits,
+        "MntWines": MntWines,
+        "Recency":Recency,
+        "MntMeatProducts": MntMeatProducts,
 
-        "MntFishProducts": MntFishProducts_selected,
-        "MntSweetProducts": MntSweetProducts_selected,
-        "MntGoldProds": MntGoldProds_selected,
-        "NumDealsPurchases": NumDealsPurchases_selected,
-        "NumWebPurchases": NumWebPurchases_selected,
-        "NumCatalogPurchases": NumCatalogPurchases_selected,
-        "NumStorePurchases": NumStorePurchases_selected,
-        "NumWebVisitsMonth": NumWebVisitsMonth_selected,
+        "MntFishProducts": MntFishProducts,
+        "MntSweetProducts": MntSweetProducts,
+        "MntGoldProds": MntGoldProds,
+        "NumDealsPurchases": NumDealsPurchases,
+        "NumWebPurchases": NumWebPurchases,
+        "NumCatalogPurchases": NumCatalogPurchases,
+        "NumStorePurchases": NumStorePurchases,
+        "NumWebVisitsMonth": NumWebVisitsMonth,
         "Complain": Complain_selected,
-        "Income": Income_selected,
-        "Z_CostContact": Z_CostContact_selected,
-        "Z_Revenue": Z_Revenue_selected,
-        "Age": Age_selected,
-        "Customer_Days": Customer_Days_selected,
+        "Income": Income,
+        "Z_CostContact": Z_CostContact,
+        "Z_Revenue": Z_Revenue,
+        "Age": Age,
+        "Customer_Days": Customer_Days,
 
         "marital_Married": marital_Married_selected,
         "marital_Single": marital_Single_selected,
@@ -126,8 +166,8 @@ if st.button("Predict marketing Response"):
         "education_Graduation": education_Graduation_selected,
         "education_Master": education_Master_selected,
         "education_PhD": education_PhD_selected,
-        "MntTotal": MntTotal_selected,
-        "MntRegularProds": MntRegularProds_selected,
+        "MntTotal": MntTotal,
+        "MntRegularProds": MntRegularProds,
 
         "education_2n_Cycle": education_2n_Cycle_selected,
         "marital_Divorced": marital_Divorced_selected,
@@ -135,43 +175,43 @@ if st.button("Predict marketing Response"):
     }
 
     ## Convert input data to a DataFrame
-    df_input = pd.DataFrame({
-        'Kidhome': [Kidhome_selected],
-        'Teenhome': [Teenhome_selected],
-        'MntFruits': [MntFruits_selected],
-        "MntWines": [MntWines_selected],
-        "Recency":[Recency_selected],
-        "MntMeatProducts": [MntMeatProducts_selected],
+    df_input = pd.DataFrame([{
+        'Kidhome': Kidhome,
+        'Teenhome': Teenhome,
+        'MntFruits': MntFruits,
+        'MntWines': MntWines_selected,
+        'Recency':Recency_selected,
+        'MntMeatProducts': MntMeatProducts,
 
-        "MntFishProducts": [MntFishProducts_selected],
-        "MntSweetProducts": [MntSweetProducts_selected],
-        "MntGoldProds": [MntGoldProds_selected],
-        "NumDealsPurchases": [NumDealsPurchases_selected],
-        "NumWebPurchases": [NumWebPurchases_selected],
-        "NumCatalogPurchases": [NumCatalogPurchases_selected],
-        "NumStorePurchases": [NumStorePurchases_selected],
-        "NumWebVisitsMonth": [NumWebVisitsMonth_selected],
-        "Complain": [Complain_selected],
-        "Z_CostContact": [Z_CostContact_selected],
-        "Z_Revenue": [Z_Revenue_selected],
-        "Age": [Age_selected],
-        "Customer_Days": [Customer_Days_selected],
+        "MntFishProducts": MntFishProducts,
+        "MntSweetProducts": MntSweetProducts,
+        "MntGoldProds": MntGoldProds,
+        "NumDealsPurchases": NumDealsPurchases,
+        "NumWebPurchases": NumWebPurchases,
+        "NumCatalogPurchases": NumCatalogPurchases,
+        "NumStorePurchases": NumStorePurchases,
+        "NumWebVisitsMonth": NumWebVisitsMonth,
+        "Complain": Complain_selected,
+        "Z_CostContact": Z_CostContact,
+        "Z_Revenue": Z_Revenue,
+        "Age": Age,
+        "Customer_Days": Customer_Days,
 
-        "marital_Married": [marital_Married_selected],
-        "marital_Single": [marital_Single_selected],
-        "marital_Together": [marital_Together_selected],
-        "marital_Widow": [marital_Widow_selected],
-        "education_Basic": [education_Basic_selected],
-        "education_Graduation": [education_Graduation_selected],
-        "education_Master": [education_Master_selected],
-        "education_PhD": [education_PhD_selected],
-        "MntTotal": [MntTotal_selected],
-        "MntRegularProds": [MntRegularProds_selected],
+        "marital_Married": marital_Married_selected,
+        "marital_Single": marital_Single_selected,
+        "marital_Together": marital_Together_selected,
+        "marital_Widow": marital_Widow_selected,
+        "education_Basic": education_Basic_selected,
+        "education_Graduation": education_Graduation_selected,
+        "education_Master": education_Master_selected,
+        "education_PhD": education_PhD_selected,
+        "MntTotal": MntTotal,
+        "MntRegularProds": MntRegularProds,
 
-        "education_2n_Cycle": [education_2n_Cycle_selected],
-        "marital_Divorced": [marital_Divorced_selected],
-        "Income": [Income_selected]
-    })
+        "education_2n_Cycle": education_2n_Cycle_selected,
+        "marital_Divorced": marital_Divorced_selected,
+        "Income": Income
+    }])
 
     ## One-hot encoding
     df_input = pd.get_dummies(df_input, 
@@ -190,6 +230,7 @@ if st.button("Predict marketing Response"):
     ## Predict
     y_unseen_pred = model.predict(df_input)[0]
     st.success(f"Predicted Marketing campaign Response: {y_unseen_pred}")
+
 ## Page design
 st.markdown(
     f"""
@@ -199,7 +240,7 @@ st.markdown(
         background-size: cover
         background-repeat: no-repeat;
     }}
-
+    
     </style>
     """,
     unsafe_allow_html=True
