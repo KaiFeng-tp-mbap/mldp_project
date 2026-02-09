@@ -179,8 +179,8 @@ if st.button("Predict marketing Response"):
         'Kidhome': Kidhome,
         'Teenhome': Teenhome,
         'MntFruits': MntFruits,
-        'MntWines': MntWines_selected,
-        'Recency':Recency_selected,
+        'MntWines': MntWines,
+        'Recency':Recency,
         'MntMeatProducts': MntMeatProducts,
 
         "MntFishProducts": MntFishProducts,
