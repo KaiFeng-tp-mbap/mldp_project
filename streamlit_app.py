@@ -106,27 +106,27 @@ MntRegularProds_selected =  st.text_input("Enter Amount spent on Regular Product
 if st.button("Predict marketing Response"):
     Kidhome= get_number(Kidhome_selected,"Kidhome",int,0)
     Teenhome= get_number(Teenhome_selected,"Teenhome",int,0)
-    MntFruits= get_number(MntFruits_selected,"MntFruits",int,0)
-    MntWines= get_number(MntWines_selected,"MntWines",int,0)
+    MntFruits= get_number(MntFruits_selected,"MntFruits",float,0)
+    MntWines= get_number(MntWines_selected,"MntWines",float,0)
     Recency= get_number(Recency_selected,"Recency",int,0)
-    MntMeatProducts= get_number(MntMeatProducts_selected,"MntMeatProducts",int,0)
+    MntMeatProducts= get_number(MntMeatProducts_selected,"MntMeatProducts",float,0)
 
-    MntFishProducts= get_number(MntFishProducts_selected,"MntFishProducts",int,0)
-    MntSweetProducts= get_number(MntSweetProducts_selected,"MntSweetProducts",int,0)
-    MntGoldProds= get_number(MntGoldProds_selected,"MntGoldProds",int,0)
+    MntFishProducts= get_number(MntFishProducts_selected,"MntFishProducts",float,0)
+    MntSweetProducts= get_number(MntSweetProducts_selected,"MntSweetProducts",float,0)
+    MntGoldProds= get_number(MntGoldProds_selected,"MntGoldProds",float,0)
     NumDealsPurchases= get_number(NumDealsPurchases_selected,"NumDealsPurchases",int,0)
     NumWebPurchases= get_number(NumWebPurchases_selected,"NumWebPurchases",int,0)
     NumCatalogPurchases= get_number(NumCatalogPurchases_selected,"NumCatalogPurchases",int,0)
     NumStorePurchases= get_number(NumStorePurchases_selected,"NumStorePurchases",int,0)
     NumWebVisitsMonth= get_number(NumWebVisitsMonth_selected,"NumWebVisitsMonth",int,0)
-    Income= get_number(Income_selected,"Income",int,0)
+    Income= get_number(Income_selected,"Income",float,0)
     Z_CostContact= get_number(Z_CostContact_selected,"Z_CostContact",int)
     Z_Revenue= get_number(Z_Revenue_selected,"Z_Revenue",int)
     Age= get_number(Age_selected,"Age",int,0)
     Customer_Days= get_number(Customer_Days_selected,"Customer_Days",int,0)
 
-    MntTotal= get_number(MntTotal_selected,"MntTotal",int,0)
-    MntRegularProds= get_number(MntRegularProds_selected,"MntRegularProds",int,0)
+    MntTotal= get_number(MntTotal_selected,"MntTotal",float,0)
+    MntRegularProds= get_number(MntRegularProds_selected,"MntRegularProds",float,0)
 
     if None in [
         Kidhome,Teenhome,MntFruits,MntWines,Recency,MntMeatProducts,MntFishProducts,MntSweetProducts,
