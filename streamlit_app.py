@@ -81,7 +81,7 @@ Complain_selected = st.selectbox("Select Complain if 1 customer Complained in th
 Income_selected = st.text_input("Enter amount of yealy household Income", Income)
 Z_CostContact_selected = st.text_input("Enter Z_CostContact", Z_CostContact)
 Z_Revenue_selected = st.text_input("Enter Z_Revenue", Z_Revenue)
-Age_selected = st.text_input("Enter Age", Age)
+Age_selected = st.text_input("Enter your Age", Age)
 Customer_Days_selected = st.text_input("Enter date of customor's enrollment with the comapny (Customer_Days)", Customer_Days)
 
 marital_Married_selected = st.selectbox("Select marital status (marital_Married): 1 if you are Married, 0 otherwise", marital_Married)
